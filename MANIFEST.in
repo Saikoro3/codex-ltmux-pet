@@ -1,0 +1,5 @@
+include README.md README.ja.md CHANGELOG.md CONTRIBUTING.md SECURITY.md NOTICE.md install.sh
+recursive-include LICENSES *
+recursive-include src/lumi_monitor *.json *.webp
+recursive-include tests test_*.py
+recursive-include .github *.yml

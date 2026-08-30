@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-ltmux-pet"
+version = "0.1.0"
+description = "A quiet animated Codex task companion for Hyprland, Kitty, and tmux"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "LICENSES/*"]
+authors = [
+  { name = "Saikoro3" },
+]
+keywords = ["codex", "hyprland", "kitty", "tmux", "wayland", "desktop-pet"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: X11 Applications :: Qt",
+  "Intended Audience :: Developers",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Desktop Environment",
+]
+dependencies = [
+  "PyQt6>=6.6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "ruff>=0.9",
+]
+
+[project.urls]
+Homepage = "https://github.com/Saikoro3/codex-ltmux-pet"
+Repository = "https://github.com/Saikoro3/codex-ltmux-pet.git"
+Issues = "https://github.com/Saikoro3/codex-ltmux-pet/issues"
+
+[project.scripts]
+lumi-pet = "lumi_monitor.ui:main"
+lumi-state-bridge = "lumi_monitor.bridge:main"
+lumi-ctl = "lumi_monitor.ctl:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lumi_monitor = [
+  "default_config.json",
+  "assets/lumi/pet.json",
+  "assets/lumi/spritesheet.webp",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

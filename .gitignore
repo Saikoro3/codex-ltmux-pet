@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.coverage
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+wheelhouse/
+
+# Runtime state and user-specific integration files must never be committed.
+state/
+sessions/
+position.json
+hooks.json
+config.local.json
+*.backup-*
+*.tmp
+
+# Pet-generation intermediates and local QA runs.
+generated_images/
+pet-runs/
+qa-private/
+

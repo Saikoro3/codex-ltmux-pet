@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "poll_interval_ms": 500,
+  "preview_poll_interval_ms": 1000,
+  "position_poll_interval_ms": 2000,
+  "drag_poll_interval_ms": 16,
+  "hyprland_native_system_move": false,
+  "sprite_width_px": 158,
+  "bubble_width_px": 166,
+  "status_area_height_px": 24,
+  "status_chip_width_px": 60,
+  "status_chip_height_px": 18,
+  "task_deck_height_px": 56,
+  "task_deck_max_layers": 3,
+  "preview_lines": 1,
+  "preview_chars": 80,
+  "fallback_chars": 120,
+  "running_stale_seconds": 900,
+  "terminal_check_seconds": 2,
+  "terminal_activity_seconds": 1,
+  "waiting_unknown_seconds": 15,
+  "finished_retention_seconds": 3600,
+  "main_sessions_only": true,
+  "attention_seconds": 3,
+  "priority": ["waiting", "running", "failed", "complete"],
+  "state_labels": {
+    "idle": "待機中",
+    "running": "作業中",
+    "waiting": "入力待ち",
+    "complete": "完了",
+    "failed": "エラー"
+  },
+  "state_rows": {
+    "idle": 0,
+    "running": 7,
+    "waiting": 6,
+    "complete": 3,
+    "failed": 5,
+    "running-right": 1,
+    "running-left": 2
+  },
+  "row_frames": {
+    "idle": [280, 110, 110, 140, 140, 320],
+    "running-right": [120, 120, 120, 120, 120, 120, 120, 220],
+    "running-left": [120, 120, 120, 120, 120, 120, 120, 220],
+    "complete": [140, 140, 140, 280],
+    "failed": [140, 140, 140, 140, 140, 140, 140, 240],
+    "waiting": [150, 150, 150, 150, 150, 260],
+    "running": [120, 120, 120, 120, 120, 220]
+  },
+  "representative_frames": {
+    "idle": 0,
+    "running-right": 0,
+    "running-left": 0,
+    "complete": 0,
+    "failed": 0,
+    "waiting": 0,
+    "running": 0
+  },
+  "colors": {
+    "idle": "#96a0b5",
+    "running": "#59d8e8",
+    "waiting": "#ffd166",
+    "complete": "#7de2a7",
+    "failed": "#ff748c"
+  }
+}
