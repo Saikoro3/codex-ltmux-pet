@@ -7,6 +7,8 @@ still most of the time, animates for three seconds when a task actually changes
 state, and keeps a compact stack of the main Codex sessions running in Kitty or
 tmux.
 
+![Lumi with a newest-first task stack](docs/lumi-task-stack.png)
+
 ## What it does
 
 - Shows only main Codex sessions; subagent work is filtered out.

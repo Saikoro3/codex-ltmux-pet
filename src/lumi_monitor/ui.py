@@ -63,7 +63,10 @@ class TaskCard(QFrame):
         color = config["colors"].get(state, "#96a0b5")
         self.setCursor(Qt.CursorShape.PointingHandCursor)
         self.setFixedHeight(42)
-        self.setStyleSheet(f"QFrame{{background:#131825e8;border:1px solid {color};border-radius:19px;padding:0}} QLabel{{color:#edf4fa;background:transparent;border:0}}")
+        self.setStyleSheet(
+            f"QFrame{{background:rgba(19,24,37,232);border:1px solid {color};border-radius:19px;padding:0}} "
+            "QLabel{color:#edf4fa;background:transparent;border:0}"
+        )
         layout = QVBoxLayout(self)
         layout.setContentsMargins(12, 4, 9, 3)
         layout.setSpacing(0)

@@ -7,6 +7,8 @@ Lumiは、Hyprland上で動作する小さなCodexタスクペットです。普
 Kittyまたはtmuxで動いているメインのCodexセッションを、小さなカードとして
 まとめて表示します。
 
+![最新順のタスクカードを表示するLumi](docs/lumi-task-stack.png)
+
 ## 主な機能
 
 - Subagentを除外し、メインのCodexセッションだけを表示
