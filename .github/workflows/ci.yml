@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13", "3.14"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install development dependencies
+        run: python -m pip install --upgrade pip ".[dev]"
+      - name: Lint
+        run: ruff check .
+      - name: Test
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: python -m unittest discover -s tests -v
+      - name: Validate installer syntax and dry run
+        run: |
+          sh -n install.sh
+          LUMI_INSTALL_DRY_RUN=1 sh install.sh
+      - name: Build distributions
+        run: python -m build
+      - name: Verify wheel in a clean environment
+        run: |
+          python -m venv /tmp/lumi-wheel-smoke
+          /tmp/lumi-wheel-smoke/bin/python -m pip install --upgrade dist/*.whl
+          /tmp/lumi-wheel-smoke/bin/lumi-ctl --version
+          QT_QPA_PLATFORM=offscreen /tmp/lumi-wheel-smoke/bin/python -c "from lumi_monitor.atlas import validate_atlas; from lumi_monitor.config import bundled_asset; assert validate_atlas(bundled_asset('assets', 'lumi', 'spritesheet.webp'))['ok']"
+
